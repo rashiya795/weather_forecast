@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<body class="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-700 min-h-screen  text-white w-screen h-screen">
+<body class="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-700 h-full  text-white w-screen  ">
 
-    <header class="text-center font-extrabold tracking-wide h-[18vh]  pt-[1%] bg-[#7215ff]">
-        <h1 class="text-5xl text-blue-100"> Wander Weather <i class="fa-solid fa-rainbow text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-400   to-green-500 text-3xl"></i></h1>
+    <header class="text-center font-extrabold tracking-wide h-1/5  pt-[1%] bg-[#7215ff]">
+        <h1 class="text-5xl text-blue-100 "> Wander Weather <i class="fa-solid fa-rainbow text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-400   to-green-500 text-3xl"></i></h1>
         <p class="text-blue-200 mt-4  bg-blue-900" >Whether you're off on a trip or planning your day, WanderWeather gives you clear forecasts for every stop along the way.</p>
     </header>
+
+    <div class="h-9/12 flex mt-[2%]  w-full">
+        <div class="w-1/2  h-full b" >
+<div class="text-center h-[15%] flex shadow-xl/60  justify-center items-center  rounded-lg mx-auto w-3/5">
+                <div class="w-[10%]  bg-white text-2xl text-black border-blue-800 border-2 h-[60%]" ><button class="h-full w-full"><i class="fa-solid fa-location-dot"></i></button></div>
+
+    <input type="text" class="bg-white p-4 h-3/5 w-3/4 text-blue-950 border-l-blue-800 border-2 " placeholder="search for location">
+</div>
+
+
+
+        </div>
+<div class="w-1/2  h-full  " id="Div1">
+<div class="w-4/5 h-[90%] shadow-xl/95 drop-shadow-xl rounded-lg  flex flex-col  justify-center items-center">      
+<div class="w-4/5 h-3/12 rounded-lg   border-blue-300 border-2 flex justify-center items-center shadow-xl/50  mt-5">
+    <div class="mx-auto text-3xl  font-extrabold tracking-wide "><h1 class="text-blue-200 "></h1></div>
+    </div>
+
+    <div class="flex h-9/12 w-4/5 justify-center items-center gap-10">
+
+        <div class="w-2/5 h-4/5  flex flex-col gap-7 text-center font-mono">
+<div class="h-1/2   border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>feels like</p></div>
+<div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>humidity</p></div>
+</div>
+
+<div class="w-2/5 h-4/5  flex flex-col gap-7 text-center font-mono">
+    <div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>condition</p></div>
+<div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg"><p>windspeed</p></div>
+</div>
+
+</div>
+</div>
+</div> 
+
+    </div>
+
 </body>
 </html>
