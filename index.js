@@ -1,5 +1,6 @@
 const apiKey = "c990d91e5f27424e2398047426ddf4e2";
 
+let savedSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
 
 async function apiCall(lat,lon){
@@ -57,7 +58,19 @@ searchButton.addEventListener('click', (e) => {
   
     const inputValue = input.value;
     
+ const cityNames = inputValue.trim('')
+
+if(cityNames === "")return
+if(!savedSearches.includes(cityNames))
+  savedSearches.unshift(cityNames)
+if(savedSearches.length>10)savedSearches.pop()
+  localStorage.setItem('recentSearches',JSON.stringify(savedSearches))
+
   getLocation(inputValue)
+ 
+  input.value='';
+        dropdownList.classList.add ('hidden')
+
 
 });
 
@@ -186,3 +199,32 @@ forecastContainer.appendChild(newForecastDiv);
     console.error("Error fetching forecast:", error);
   }
 }
+
+const dropdownList =document.getElementById('dropdownList')
+
+ 
+input.addEventListener('click',()=>{
+
+  dropdownList.classList.remove( 'hidden');
+  
+    dropdownList.innerHTML = '';
+
+
+    savedSearches.forEach((search)=>{
+      if(search.trim()!==""){
+       const list = document.createElement('li')
+       list.textContent=search
+    list.className = 'cursor-pointer hover:bg-gray-200 px-2 py-1 flex flex-col justify-center items-center ';
+
+     
+    list.addEventListener('click',()=>{
+      input.value=search;
+
+      dropdownList.classList.add ('hidden')
+      dropdownList.innerHTML='';
+    });
+    dropdownList.appendChild(list)
+   
+  }
+});
+});

@@ -28,13 +28,34 @@
     <section class="w-full max-w-5xl flex flex-col items-center gap-6">
 
       <!-- Input Row -->
-      <div class="w-full flex flex-wrap justify-center items-center gap-2 bg-[#D0F0F6] shadow-xl/40 rounded-lg shadow-md p-4">
-        <button id="button" class="text-black text-2xl border-2 border-blue-800 px-4 py-2 rounded">
-          <i class="fa-solid fa-location-dot"></i>
-        </button>
-        <input type="text" id="input" class="flex-grow min-w-[200px] max-w-md p-3 border-2 border-blue-800 text-blue-950 rounded" placeholder="Search for location" required />
-        <button id="search" class="bg-blue-700 hover:bg-blue-900 text-white px-6 py-3 rounded transition">Search</button>
-      </div>
+<!-- Input Row -->
+<div class="w-full max-w-2xl flex items-center gap-2 bg-[#D0F0F6] shadow-xl/40 rounded-lg shadow-md p-4 relative">
+  <button id="button" class="text-black text-2xl border-2 border-blue-800 px-4 py-2 rounded">
+    <i class="fa-solid fa-location-dot"></i>
+  </button>
+
+  <div class="relative flex-grow">
+    <input
+      type="text"
+      id="input"
+      autocomplete="off"
+      class="w-full p-3 border-2 border-blue-800 text-blue-950 rounded"
+      placeholder="Search for location"
+      required
+    />
+    <ul
+      id="dropdownList"
+      class="absolute z-10 w-full  bg-white border border-gray-300 rounded mt-1 shadow hidden text-black"
+    ></ul>
+  </div>
+
+  <button
+    id="search"
+    class="bg-blue-700 hover:bg-blue-900 text-white px-6 py-3 rounded transition"
+  >
+    Search
+  </button>
+</div>
 
       <!-- Forecast Button -->
       <button id="forecastButton" class="bg-blue-900 hover:bg-sky-900 w-full max-w-5xl py-4 rounded-lg shadow-md text-center transition">
