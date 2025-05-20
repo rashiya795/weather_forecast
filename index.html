@@ -1,54 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="min-h-screen">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WanderWeather</title>
-    <link href="./output.css" rel="stylesheet"></link>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>WanderWeather</title>
+  <link href="./output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body class="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-700 h-full  text-white w-screen  ">
+<body class="bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-700 text-white min-h-screen w-screen flex flex-col">
 
-    <header class="text-center font-extrabold tracking-wide h-1/5  pt-[1%] bg-[#7215ff]">
-        <h1 class="text-5xl text-blue-100 "> Wander Weather <i class="fa-solid fa-rainbow text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-400   to-green-500 text-3xl"></i></h1>
-        <p class="text-blue-200 mt-4  bg-blue-900" >Whether you're off on a trip or planning your day, WanderWeather gives you clear forecasts for every stop along the way.</p>
-    </header>
+  <!-- Header -->
+  <header class="text-center font-extrabold tracking-wide py-4 bg-[#7215ff]">
+    <h1 class="text-5xl text-blue-100">
+      Wander Weather
+      <i class="fa-solid fa-rainbow text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 text-3xl"></i>
+    </h1>
+    <p class="text-blue-200 mt-4 bg-blue-900 px-4">
+      Whether you're off on a trip or planning your day, WanderWeather gives you clear forecasts for every stop along the way.
+    </p>
+  </header>
 
-    <div class="h-9/12 flex mt-[2%]  w-full">
-        <div class="w-1/2  h-full b" >
-<div class="text-center h-[15%] flex shadow-xl/60  justify-center items-center  rounded-lg mx-auto w-3/5">
-                <div class="w-[10%]  bg-white text-2xl text-black border-blue-800 border-2 h-[60%]" ><button class="h-full w-full"><i class="fa-solid fa-location-dot"></i></button></div>
+  <!-- Main Container -->
+  <main class="flex flex-col items-center flex-grow px-4 py-6 gap-6">
 
-    <input type="text" class="bg-white p-4 h-3/5 w-3/4 text-blue-950 border-l-blue-800 border-2 " placeholder="search for location">
-</div>
+    <!-- Search Section -->
+    <section class="w-full max-w-5xl flex flex-col items-center gap-6">
 
+      <!-- Input Row -->
+      <div class="w-full flex flex-wrap justify-center items-center gap-2 bg-[#D0F0F6] shadow-xl/40 rounded-lg shadow-md p-4">
+        <button id="button" class="text-black text-2xl border-2 border-blue-800 px-4 py-2 rounded">
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
+        <input type="text" id="input" class="flex-grow min-w-[200px] max-w-md p-3 border-2 border-blue-800 text-blue-950 rounded" placeholder="Search for location" required />
+        <button id="search" class="bg-blue-700 hover:bg-blue-900 text-white px-6 py-3 rounded transition">Search</button>
+      </div>
 
+      <!-- Forecast Button -->
+      <button id="forecastButton" class="bg-blue-900 hover:bg-sky-900 w-full max-w-5xl py-4 rounded-lg shadow-md text-center transition">
+        Show 5-Day Forecast
+      </button>
 
+      <!-- Forecast Modal -->
+      <div id="mainForecastDiv" class="hidden absolute left-1/2 transform -translate-x-1/2 w-11/12  rounded-2xl bg-sky-600 z-50">
+        <div class="sticky top-0 bg-sky-600 z-10 flex justify-end pr-2 pt-2">
+          <button id="crossButton" class="text-2xl text-blue-950 bg-red-400 w-9">X</button>
         </div>
-<div class="w-1/2  h-full  " id="Div1">
-<div class="w-4/5 h-[90%] shadow-xl/95 drop-shadow-xl rounded-lg  flex flex-col  justify-center items-center">      
-<div class="w-4/5 h-3/12 rounded-lg   border-blue-300 border-2 flex justify-center items-center shadow-xl/50  mt-5">
-    <div class="mx-auto text-3xl  font-extrabold tracking-wide "><h1 class="text-blue-200 "></h1></div>
-    </div>
+        <div id="forecastContainer" class="flex flex-col items-center flex-grow gap-2 py-2">
+          <!-- Forecast Cards will be inserted here -->
+        </div>
+      </div>
 
-    <div class="flex h-9/12 w-4/5 justify-center items-center gap-10">
+    </section>
 
-        <div class="w-2/5 h-4/5  flex flex-col gap-7 text-center font-mono">
-<div class="h-1/2   border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>feels like</p></div>
-<div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>humidity</p></div>
-</div>
+    <!-- Weather Report Section -->
+    <section class="w-full max-w-5xl bg-[#D0F0F6] text-[#073B4C] rounded-lg shadow-xl p-6 flex flex-col items-center md:text-4xl gap-6">
 
-<div class="w-2/5 h-4/5  flex flex-col gap-7 text-center font-mono">
-    <div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg "><p>condition</p></div>
-<div class="h-1/2  border-blue-300 border-2 shadow-xl/50 rounded-lg"><p>windspeed</p></div>
-</div>
+      <!-- Location & Temp -->
+      <div class="w-full border-2 border-[#7FB3C8] rounded-lg p-4 text-center shadow-md  md:p-20">
+        <h1 id="place" class="text-4xl font-bold text-[#05445E]"></h1>
+        <p id="Date" class="text-[#397D90]"></p>
+        <p id="temp" class=" text-[#186FAF] mt-2 text-4xl"></p>
+      </div>
 
-</div>
-</div>
-</div> 
+      <!-- Humidity & Pressure -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full font-mono md:flex md:flex-col">
+        <div class="border-2 border-[#7FB3C8] rounded-lg p-4 shadow-md text-center">
+          <p class="font-bold  text-[#05445E]" >Pressure</p>
+          <p id="pressure" class="text-2xl"></p>
+        </div>
+        <div class="border-2 border-[#7FB3C8] rounded-lg p-4 shadow-md text-center md:flex md:flex-col">
+          <p class="font-bold text-[#05445E]">Humidity</p>
+          <p id="humidity"></p>
+        </div>
+      </div>
 
-    </div>
+      <!-- Condition & Wind -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full font-mono md:flex md:flex-col">
+        <div class="border-2 border-[#7FB3C8] rounded-lg p-4 shadow-md text-center">
+          <p class="font-bold mb-2 text-[#05445E]">Condition</p>
+          <div class="flex justify-center mb-1"><img class="h-14 md:h-28" id="icons" /></div>
+          <p id="condition"  class="text-3xl"></p>
+        </div>
+        <div class="border-2 border-[#7FB3C8] rounded-lg p-4 shadow-md text-center md:flex md:flex-col ">
+          <p class="font-bold text-[#05445E]">Windspeed</p>
+          <p id="windspeed"></p>
+        </div>
+      </div>
 
+    </section>
+
+  </main>
+
+  <script src="./index.js" charset="UTF-8"></script>
 </body>
 </html>
