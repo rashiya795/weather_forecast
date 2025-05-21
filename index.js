@@ -1,6 +1,7 @@
 const apiKey = "c990d91e5f27424e2398047426ddf4e2";
 
 let savedSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+const dropdownList =document.getElementById('dropdownList')
 
 
 async function apiCall(lat,lon){
@@ -22,12 +23,15 @@ try {
 const locationButton = document.getElementById('button');
 
 locationButton.addEventListener('click',() =>{
+
 console.log('clicked')
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(success,error)
+
     }else{
         input.value='geolocation is not supportes in this browser'
     }
+
   });
 
 async function success(position) {
@@ -200,7 +204,6 @@ forecastContainer.appendChild(newForecastDiv);
   }
 }
 
-const dropdownList =document.getElementById('dropdownList')
 
  
 input.addEventListener('click',()=>{
